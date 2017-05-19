@@ -90,14 +90,7 @@ public class App {
 		} 
 		
 		
-	
-		
-		
-		
-		
-		
-	
-		
+	 
 		entityManager.close();
 		entityManageFactory.close();
 	
