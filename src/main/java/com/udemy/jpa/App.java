@@ -17,7 +17,7 @@ public class App {
 		
 
 		// helps to instantiate and manage multiple instance
-		EntityManagerFactory entityManageFactory = Persistence.createEntityManagerFactory("psersonal_jpa");
+		EntityManagerFactory entityManageFactory = Persistence.createEntityManagerFactory("jpa");
 		
 		
 		//defines persistence related operations on java objects.
