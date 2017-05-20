@@ -3,6 +3,7 @@ package com.udemy.compoistionmanytomany;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.engine.spi.CascadeStyle;
 
 
 @Entity
@@ -24,7 +27,7 @@ public class Professor {
 	@Column(name="professor_name")
 	private String professorName;
 	
-	@ManyToMany(mappedBy="professors", fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy="professors", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<ResearchProject> projects;
 	
 	public Professor(){
