@@ -224,6 +224,52 @@ JDBC Driver									JDBC Driver 						JDBC Driver
 - [ ] Not so convenient -> new technologies are developer friendly
 - [ ] For example: JPA, Hibernate, EclipseLink
 - [ ] 
+# Memory Care
+
+# Fetching
+
+- [ ] JPA basic concept —> make a duplicate copy of the database in the cache memory
+- [ ] We manipulate the duplicate version
+- [x] When we call getTransaction().commit() —> this time the original database will updated according to changes.
+- [x] We can load /fetch data form database 2 ways
+- [ ] Eager fetch —> when we search for a record and find it, we return the whole record
+- [ ] Lazy fetch  —> we  search for re cord and if we find it  —> we store the information that is available but do not return data. Data will be returned only we the setter method is called. For example getStudents(). Memory Friendly!!!
+
+# Cascade
+- [x] Use of the cascade annotation element can be used to propagate the effect of an operation to associated entities.
+- [x] The cascade functionality us most typically used in parent-child relationship or in cases of composition.
+- [ ]  
+
+Author	  —————> Book
+	 	  —————> Book
+		  —————> Book
+# What if we rid of author object? Of course we should remove the book object as we’ll
+- [x] That’s why cascading com tube
+1. CascadeType.PERSISTS ->  if persist() is called on the parent object, the child will be persist as well
+2. CascadeType.REMOVE  -> child will be removed
+3. CascadeType.MERGE -> child will be merged as well
+4. CascadeType.REFRESH -> child will be refreshed as well.
+5. CascadeType.ALL  -> all of the above mention!!!
+
+# - [x] Explainations
+
+EntityManager context
+student1
+Student 2
+Student 3
+If we call entityManager.persist() on a given object: I will be added to the context!!!
+
+entityManager.detach(Student3) it will be detached —> it is removed from the context, the EntityManager no longer manages that given object.
+
+# Why is it good? EntityManager can perform operation again such as refresh() and remove() 
+ 
+- [ ] Merge VS persist: both of them add the given entity to the context
+- [ ] Persist: future updates will be tracked
+- [ ] Merge: a new instance is created with the copied state and this instance will be managed by EntityManager. So any changes made the original object will not be part of transaction. Ok we can merge again!!!
+- [ ]  
+
+
+
 
 
      
